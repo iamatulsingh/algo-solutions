@@ -28,7 +28,7 @@ from collections import deque
 
 # Definition for a binary tree node.
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(self, val: int = 0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
@@ -40,6 +40,7 @@ class Solution:
             return 0
         final_result = 1
         max_sum = root.val
+        counter = 1
 
         q = deque()
         if root.left is not None:
@@ -50,6 +51,7 @@ class Solution:
         while len(q) > 0:
             count_node = len(q)
             node_sum = 0
+            counter += 1
 
             while count_node:
                 node = q.popleft()
@@ -64,7 +66,7 @@ class Solution:
             
             if node_sum > max_sum:
                 max_sum = node_sum
-                final_result += 1
+                final_result = counter
 
         return final_result
 
@@ -76,7 +78,7 @@ if __name__ == "__main__":
     root.left = TreeNode(7)
     root.right = TreeNode(0)
     root.left.left = TreeNode(7)
-    root.left.right = TreeNode(-8)
+    root.left.right = TreeNode(8)
     solution = Solution()
     final_result = solution.maxLevelSum(root)
     print(final_result)
