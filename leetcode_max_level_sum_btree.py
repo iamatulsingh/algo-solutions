@@ -78,7 +78,7 @@ if __name__ == "__main__":
     root.left = TreeNode(7)
     root.right = TreeNode(0)
     root.left.left = TreeNode(7)
-    root.left.right = TreeNode(8)
+    root.left.right = TreeNode(-8)
     solution = Solution()
     final_result = solution.maxLevelSum(root)
     print(final_result)
